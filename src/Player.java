@@ -4,7 +4,7 @@ public abstract class Player {
     private String name;
     private List<Ship> ships;
     private TargetGrid targetGrid;
-    private OceanGird oceanGird;
+    private OceanGrid oceanGrid;
     
     public Player(String name) {
         this.name = name;
