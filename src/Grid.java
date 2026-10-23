@@ -1,6 +1,14 @@
 public class Grid {
     private Cell[][] cells = new Cell[10][10];
 
+    public Grid() {
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++) {
+                cells[row][col] = new Cell();
+            }
+        }
+    }
+
     public String display() {
         String result = this.generateGridColumnHeaders() + System.lineSeparator() + this.generateRowHeadersAndCells();
         return result;
@@ -40,23 +48,29 @@ public class Grid {
         // line2:  +---+---+---+---+
         String[] rowHeaders = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         String fullGrid = "";
-        
+
         //this repeats 10 times, creating each row
         for (int rowIndex = 0; rowIndex < 10; rowIndex++) {
-            // this creates line 1
+            // this creates line 1, starting with the row header
             String line1 = "";
-            for (int cell = 0; cell < 10; cell++) {
-                if (cell == 0) {
-                    String substring = "| " + rowHeaders[rowIndex] + " ";
-                    line1 = line1 + substring;
-                } else {
+            String rowHeader = "| " + rowHeaders[rowIndex] + " ";
+            line1 = line1 + rowHeader;
+
+            // now, create the ten columns for each row
+            for (int columnIndex = 0; columnIndex < 10; columnIndex++) {
+                if (columnIndex == 9) {
                     // Cells in the final column need to be built with extra space, since the
                     // column header is a 2 digit number (10), rather than a 1 digit number
-                    String substring = "|   ";
+                    String symbol = getCellSymbol(cells[rowIndex][columnIndex]);
+                    line1 = line1 + "|  " + symbol + " |";
+                } else {
+                    // Checks the cellState of each cell, then fills the graphical display of
+                    // that cell with a symbol depending on its state.
+                    String symbol = getCellSymbol(cells[rowIndex][columnIndex]);
+                    String substring = "| " + symbol + " ";
                     line1 = line1 + substring;
                 }
             }
-            line1 = line1 + "|    |";
             
             // This creates line2
             String line2 = "+---";
@@ -76,5 +90,29 @@ public class Grid {
             }
         }
         return fullGrid;
+    }
+
+    public Cell getCellAtCoord(Coordinate coord) {
+        // get the row of the coord and store it
+        int row = coord.getRow();
+        // get the col of the coord and store it
+        int col = coord.getColumn();
+        // fetch the cell in the cells array that matches the coord
+        return cells[row][col];
+    }
+
+    private String getCellSymbol(Cell cell) {
+        switch (cell.getCellstate()) {
+            case HIT:
+                return "X";
+            case MISS:
+                return "O";
+            case OCCUPIED:
+                return "S";
+            case EMPTY:
+                return " ";
+            default:
+                return " ";
+        }
     }
 }
