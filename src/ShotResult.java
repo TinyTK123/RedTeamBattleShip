@@ -1,12 +1,18 @@
-public enum ShotResult {
-    Hit,
-    Miss,
-    Sunk;
-
+public class ShotResult {
+    private ShotOutcome outcome;
     private String shipName = null;
     private Coordinate shot = null;
+    
+    public ShotResult(ShotOutcome outcome, Coordinate shot) {
+        this.outcome = outcome;
+        this.shot = shot;
+    }
 
-    public String GetShipName() {
+    public ShotOutcome getOutcome() {
+        return outcome;
+    }
+
+    public String getShipName() {
         return shipName;
     }
 
@@ -15,9 +21,6 @@ public enum ShotResult {
     }
 
     public Coordinate getShot() {
-        return shot;    }
-
-    public void setShot(Coordinate shot) {
-        this.shot = shot;
+        return shot;
     }
 }
