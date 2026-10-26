@@ -13,7 +13,7 @@ public abstract class Player {
     public String getName() {
         return name;
     }
-
+/* 
     public Coordinate takeShot(){
 
     }
@@ -21,7 +21,7 @@ public abstract class Player {
     public ShotResult receiveShot(Coordinate shot){
 
     }
-
+*/
     public void receiveShotResult(){
 
     }
