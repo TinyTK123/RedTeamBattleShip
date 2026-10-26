@@ -6,7 +6,9 @@ public class GameConfig {
             selectOneVsTwoPlayers();
             selectGameMode();
             gameConfigSettings();
+            break;
         }
+        
     }
 
     public void selectOneVsTwoPlayers() {
