@@ -3,8 +3,8 @@ public class GameConfig {
 
     public void setUp() {
         while(true){
+            // put a conditional loop here for single player vs 2 player for different game config criteria. 
             selectOneVsTwoPlayers();
-            selectGameMode();
             gameConfigSettings();
             break;
         }
@@ -13,9 +13,10 @@ public class GameConfig {
 
     public void selectOneVsTwoPlayers() {
         while(true){
-            String choosePlayers = ConsoleHelper.getInput("How would you like to play? \n 1. Single Player (vs AI) \n 2. Two Player \n");
+            String choosePlayers = ConsoleHelper.getInput("How would you like to play? \n 1. Single Player (vs AI) 2. Two Player \n");
             if (choosePlayers.equals("1")){
                 IO.println("Single Player selected");
+                selectGameMode();
             }
             if (choosePlayers.equals("2")){
                 IO.println("Two Player selected");
