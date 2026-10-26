@@ -5,8 +5,8 @@
  */
 public class TargetGrid extends Grid {
 
-    public TargetGrid(int rows, int cols) {
-        super(rows, cols);
+    public TargetGrid() {
+        super();
     }
 
     /**

@@ -1,4 +1,7 @@
 public class Game {
+    MainMenu menu = new MainMenu();
+    TargetGrid tg = new TargetGrid();
+    OceanGrid og = new OceanGrid();
     private Player player1;
     private Player player2;
     
@@ -8,6 +11,8 @@ public class Game {
     }
 
     public void play(){
+
+        menu.display();
 
     }
 }
