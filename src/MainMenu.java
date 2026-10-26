@@ -24,7 +24,7 @@ public class MainMenu{
         }
     }
     public void playGame(){
-        IO.println(" This begings the Game Config? ");
+        IO.println(" This begins the Game Config? ");
     }
 
     public void tutorial(){
@@ -33,6 +33,7 @@ public class MainMenu{
     }
 
     public void quitGame(){
-        IO.println("This will close the game.");
+        IO.println("Thanks for playing!");
+        System.exit(0);
     }
 }
