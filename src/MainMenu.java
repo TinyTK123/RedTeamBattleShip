@@ -3,7 +3,7 @@ public class MainMenu{
     private GameConfig gf = new GameConfig();
 
     public void display(){
-        IO.println("░████████                 ░██       ░██    ░██                       ░██        ░██           \r\n" + //
+        IO.println(ConsoleColors.CYAN + "░████████                 ░██       ░██    ░██                       ░██        ░██           \r\n" + //
                     "░██    ░██                ░██       ░██    ░██                       ░██                      \r\n" + //
                     "░██    ░██   ░██████   ░████████ ░████████ ░██  ░███████   ░███████  ░████████  ░██░████████  \r\n" + //
                     "░████████         ░██     ░██       ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░██░██    ░██ \r\n" + //
@@ -12,7 +12,7 @@ public class MainMenu{
                     "░█████████   ░█████░██     ░████     ░████ ░██  ░███████   ░███████  ░██    ░██ ░██░██░█████  \r\n" + //
                     "                                                                                   ░██        \r\n" + //
                     "                                                                                   ░██        \r\n" + //
-                    "                                                                                              ");
+                    "                                                                                              " + ConsoleColors.RESET);
         while(true){
             String chooseMenuOption = ConsoleHelper.getInput("Choose what you would like to do: \n 1. Play Game 2. Tutorial 3. Quit \n");
 
