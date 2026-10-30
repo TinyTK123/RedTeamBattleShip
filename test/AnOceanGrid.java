@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AnOceanGrid {
-    @test
+    @Test
     void shouldBeAbleToBeMAde(){
         OceanGrid og = new OceanGrid();
         assertNotNull(og);
