@@ -123,4 +123,12 @@ public class Coordinate {
         // field comparison
         return Objects.equals(row, coordinate.row) && Objects.equals(column, coordinate.column);
     }
+
+    public static Coordinate randomCoordinate(){
+        try{
+            return new Coordinate((int)(Math.random()*10.0), (int)(Math.random()*10.0));
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
