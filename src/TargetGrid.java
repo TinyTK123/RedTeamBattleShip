@@ -14,13 +14,22 @@ public class TargetGrid extends Grid {
      * A shot is valid if the coordinate is inside the grid bounds
      * and that cell has not already been fired upon (not Hit or Miss).
      *
-     * @param coord the target coordinate
+     * @param shot the target coordinate
      * @return true if the shot can be fired, false otherwise
      */
-    public boolean isValidShot(Coordinate coord) {
-        // TODO: bounds check (or rely on getCellAtCord throwing / returning null)
-        // TODO: check the cell's state is Empty
-        return false;
+    public boolean isValidShot(Coordinate shot) {
+        Cell cell = this.getCellAtCoord(shot);
+        CellState cellState = cell.getCellstate();
+
+        if (cellState == CellState.HIT || cellState == CellState.MISS) {
+        // This means the player has already fired at this cell
+            return false;
+        } else if (cellState == CellState.EMPTY) {
+        // This means the player has yet to fire at this cell.
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
