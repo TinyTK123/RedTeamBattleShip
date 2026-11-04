@@ -15,4 +15,11 @@ public class Game {
         menu.display();
 
     }
+
+    public void clearScreen(){
+        while (true){
+            ConsoleHelper.getInput("Press Enter To clear the screen");
+            System.out.print("\033[2J");
+        }
+    }
 }
