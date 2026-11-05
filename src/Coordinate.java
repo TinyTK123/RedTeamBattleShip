@@ -58,48 +58,30 @@ public class Coordinate {
         return column;
     }
 
-    public List<Coordinate> coordsInDirection(int numberOfTiles, Direction direction) {
+    public List<Coordinate> coordsInDirection(int numberOfTiles, Direction direction) throws Exception {
         List<Coordinate> listOfCoordinates = new ArrayList<>();
-        if (direction == Direction.SOUTH) {
-            for (int i = 0; i < numberOfTiles; i++) {
-                try {
-                    listOfCoordinates.add(new Coordinate(this.row + i, this.column));
-                } catch (Exception e) {
-                    System.out.println("Invalid input.");
-                }
+        
+        for (int i = 0; i < numberOfTiles; i++) {
+            int newRow = this.row;
+            int newColumn = this.column;
+
+            switch (direction) {
+                case NORTH:
+                    newRow -= i;
+                    break;
+                case SOUTH:
+                    newRow += i;
+                    break;
+                case EAST:
+                    newColumn += i;
+                    break;
+                case WEST:
+                    newColumn -= i;
+                    break;
             }
-            //create new coordinates with row values higher than input coordinate, including input coordinate
+            listOfCoordinates.add(new Coordinate(newRow, newColumn));
         }
-        else if (direction == Direction.NORTH) {
-            for (int i = 0; i < numberOfTiles; i++) {
-                try {
-                    listOfCoordinates.add(new Coordinate(this.row - i, this.column));
-                } catch (Exception e) {
-                    System.out.println("Invalid input.");
-                }
-            }
-            //create new coordinates with row values lower than input coordinate, including input coordinate
-        }
-        else if (direction == Direction.WEST) {
-            for (int i = 0; i < numberOfTiles; i++) {
-                try {
-                    listOfCoordinates.add(new Coordinate(this.row, this.column - i));
-                } catch (Exception e) {
-                    System.out.println("Invalid input.");
-                }
-            }
-            //create new coordinates with column values lower than input coordinate, including input coordinate
-        }
-        else if (direction == Direction.EAST) {
-            for (int i = 0; i < numberOfTiles; i++) {
-                try {
-                    listOfCoordinates.add(new Coordinate(this.row, this.column + i));
-                } catch (Exception e) {
-                    System.out.println("Invalid input.");
-                }
-            }
-            //create new coordinates with columns values higher than input coordinate, including input coordinate
-        }
+
         return listOfCoordinates;
     }
 
