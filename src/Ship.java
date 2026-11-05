@@ -12,25 +12,11 @@ public class Ship {
         this.length = length;
     }
 
-    public boolean isSunk() {
-        // check number of items in hits, if number of items is equal to length, then ship is sunk
-        int numberOfHits = hits.size();
-        if (numberOfHits == length) {
-            return true;
-        } else {
-            return false;
-        }
+    public void setCoordinates(List<Coordinate> coords) {
+        this.coords = coords;
     }
 
-    public void registerHit(Coordinate shot) {
-        hits.add(shot);
-    }
-
-    public void setCoordinates(List<Coordinate> coordinates) {
-        this.coords = coordinates;
-    }
-
-    public List<Coordinate> getCoordinates() {
+    public List<Coordinate> getCoords() {
         return coords;
     }
 
@@ -38,11 +24,19 @@ public class Ship {
         return name;
     }
 
-    public List<Coordinate> getHits() {
-        return hits;
-    }
-
     public int getLength() {
         return length;
+    }
+
+    public void registerHit(Coordinate coord){
+        hits.add(coord);
+    }
+
+    public Boolean isSunk(){
+        if (hits.size() == length){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

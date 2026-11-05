@@ -18,7 +18,7 @@ public class Grid {
     private String generateGridColumnHeaders() {
         String[] columnHeaders = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
-        String line1 = "+---";
+        String line1 = ConsoleColors.BLUE + "+---";
         for (int i = 0; i < 10; i++) {
             String substring = "+---";
             line1 = line1 + substring;
@@ -105,11 +105,11 @@ public class Grid {
     private String getCellSymbol(Cell cell) {
         switch (cell.getCellstate()) {
             case HIT:
-                return "X";
+                return ConsoleColors.RED_BOLD + "X" + ConsoleColors.BLUE;
             case MISS:
-                return "O";
+                return ConsoleColors.WHITE_BOLD + "O" + ConsoleColors.BLUE;
             case OCCUPIED:
-                return "S";
+                return ConsoleColors.GREY_BOLD + "S" + ConsoleColors.BLUE; // Experiment and see what colors look the best
             case EMPTY:
                 return " ";
             default:
