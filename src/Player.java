@@ -13,15 +13,13 @@ public abstract class Player {
     public String getName() {
         return name;
     }
-/* 
-    public Coordinate takeShot(){
 
-    }
+    public abstract Coordinate takeShot();
 
-    public ShotResult receiveShot(Coordinate shot){
+    // public ShotResult receiveShot(Coordinate shot){
 
-    }
-*/
+    // }
+
     public void receiveShotResult(){
 
     }
