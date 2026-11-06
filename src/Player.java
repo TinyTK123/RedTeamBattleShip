@@ -23,4 +23,15 @@ public abstract class Player {
     public void receiveShotResult(){
 
     }
+
+    // TODO: player subclasses require these protected getters to access the targetGrid and oceanGrid.
+    // This works for now, but it may be in our best interest to rework the Player base class into
+    // an interface sometime in the future.
+    protected TargetGrid getTargetGrid() {
+        return targetGrid;
+    }
+
+    protected OceanGrid getOceanGrid() {
+        return oceanGrid;
+    }
 }

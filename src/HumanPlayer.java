@@ -6,13 +6,24 @@ public class HumanPlayer extends Player{
     @Override
     public Coordinate takeShot(){
         // get input from player to create Coordinate
+        // show grids for player
+        getTargetGrid().display();
+        getOceanGrid().display();
+
         while (true) {
+            Coordinate shot;
             try {
                 String playerInput = ConsoleHelper.getInput("Input the coordinate you'd like to fire upon: ");
-                Coordinate shot = new Coordinate(playerInput);
-                return shot;
+                shot = new Coordinate(playerInput);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+                continue;
+            }
+            // check if shot was valid, if valid return, if not give message and continue
+            if (getTargetGrid().isValidShot(shot)) {
+                return shot;
+            } else {
+                System.out.println("You've already fired at that coordinate.");
                 continue;
             }
         }
