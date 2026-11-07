@@ -1,29 +1,27 @@
 public class GameConfig {
+    private Player player1 = null;
+    private Player player2 = null;
+    private int NumberOfPlayers;
 
+    // get the number of players to determine if you only need 1 instance, or 2, of the Human Player. 
+    private int getNumberOfPlayers(){
+        return ConsoleHelper.getNumberBetween("How would you like to play? \n 1. Single Player (vs AI) 2. Two Player \n", 1, 2);
+    } 
 
-    public void setUp() {
-        while(true){
-            // put a conditional loop here for single player vs 2 player for different game config criteria. 
-            selectOneVsTwoPlayers();
-            gameConfigSettings();
-            break;
-        }
-        
-    }
-
-    public void selectOneVsTwoPlayers() {
-        while(true){
-            String choosePlayers = ConsoleHelper.getInput("How would you like to play? \n 1. Single Player (vs AI) 2. Two Player \n");
-            if (choosePlayers.equals("1")){
-                IO.println("Single Player selected");
-                selectGameMode();
-            }
-            if (choosePlayers.equals("2")){
-                IO.println("Two Player selected");
-            }
-        break;
+    private String getPlayerName(int NumberOfPlayers){
+        if (NumberOfPlayers == 1){
+            String input = ConsoleHelper.getInput("Player 1, What is yout name?");
+        } else {
+            String input = ConsoleHelper.getInput("Player 1, What is yout name?");
+            String input1 = ConsoleHelper.getInput("Player 2, What is yout name?");
         }
     }
+
+    private Player createHumanPlayers(/* name, ship factory */){
+
+    } 
+
+
 
     public void selectGameMode() {
         // only applies to single player
