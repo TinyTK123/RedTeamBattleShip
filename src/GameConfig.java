@@ -5,7 +5,7 @@ public class GameConfig {
 
     // get the number of players to determine if you only need 1 instance, or 2, of the Human Player. 
     private int getNumberOfPlayers(){
-        return ConsoleHelper.getNumberBetween("How would you like to play? \n 1. Single Player (vs AI) 2. Two Player \n", 1, 2);
+        return NumberOfPlayers = ConsoleHelper.getNumberBetween("How would you like to play? \n 1. Single Player (vs AI) 2. Two Player \n", 1, 2);
     } 
 
     private String getPlayerName(int NumberOfPlayers){
