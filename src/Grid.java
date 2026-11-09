@@ -93,7 +93,7 @@ public class Grid {
         return fullGrid;
     }
 
-    public Cell getCellAtCoord(Coordinate coord) {
+    protected Cell getCellAtCoord(Coordinate coord) {
         // get the row of the coord and store it
         int row = coord.getRow();
         // get the col of the coord and store it
