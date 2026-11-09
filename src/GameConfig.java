@@ -5,8 +5,21 @@ public class GameConfig {
 
     
     public Game configureAndCreateGame(){
+        numberOfPlayers = getNumberOfPlayers();
+        player1 = createHumanPlayer();
 
+        if (numberOfPlayers == 1){
+            IO.println("Single Player is not available yet.");
+            ConsoleHelper.getInput("Press enter to return to main menu");
+            return null;
+        } else if (numberOfPlayers == 2){
+            player1 = createHumanPlayer();
+            player2 = createHumanPlayer();
+        }
+        
+        return new Game(player1, player2);
     }
+    
 
     // get the number of players to determine if you only need 1 instance, or 2, of the Human Player. 
     private int getNumberOfPlayers(){
@@ -42,28 +55,36 @@ public class GameConfig {
         }
     }
 
-
-
-    public void selectGameMode() {
-/*  THIS MAY STILL BE USEFUL, Keeping for now (just in case)
-        while (true) {
-            String selectGameMode = ConsoleHelper.getInput("Select Difficulty: \n 1. Easy  2. Medium  3. Hard \n");
-            if (selectGameMode.equals("1")){
-                IO.println("Easy AI selected.");
-            }
-            if (selectGameMode.equals("2")){
-                IO.println("Medium AI selected.");
-            }
-            if (selectGameMode.equals("3")){
-                IO.println("Hard AI selected.");
-            }
-        break;
-        }
-*/
+    private Player createHumanPlayer() {
+        String name = getPlayerName();
+        ShipFactory shipFactory = getDesiredShipFactory();
+        return new HumanPlayer(name, shipFactory);
     }
 
-    public void gameConfigSettings(){
-/*  THIS NEEDS TO BE REFACTORED TO FIT UPDATED GAME CONFIG
+    public void selectGameMode() {
+// THIS MAY STILL BE USEFUL, Keeping for now (just in case)
+        while (true) {
+            try{
+                int  selectGameMode = ConsoleHelper.getNumberBetween("Select Difficulty: \n 1. Easy \n  2. Medium \n  3. Hard \n", 1, 3);
+                if (selectGameMode == 1){
+                    IO.println("Easy AI selected.");
+                }
+                if (selectGameMode == 2){
+                    IO.println("Medium AI selected.");
+                }
+                if (selectGameMode == 3){
+                    IO.println("Hard AI selected.");
+                }
+            } catch (Exception e){
+                IO.println("Please enter 1, 2, or 3");
+            }
+        }
+    }
+
+/*   
+
+public void gameConfigSettings(){
+  THIS NEEDS TO BE REFACTORED TO FIT UPDATED GAME CONFIG
         while (true){
             IO.println("You have chosen the following settings: (Game Settings Will Go Here)" );
             String confirmSettings = ConsoleHelper.getInput("Confirm Settings: \n 1. Yes  2. No \n");
@@ -79,5 +100,4 @@ public class GameConfig {
         }
     }
 */
-}
 }
