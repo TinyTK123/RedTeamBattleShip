@@ -22,8 +22,8 @@ public abstract class Player {
 
     // }
 
-    public void placeShips() {
-        shipFactory.getShips();
+    public List<Ship> placeShips() {
+        return shipFactory.getShips();
     }
 
     public void receiveShotResult(){
