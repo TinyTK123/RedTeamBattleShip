@@ -31,6 +31,7 @@ public abstract class ShipFactory {
                     break;
                 } catch (Exception e) {
                     // bad coords - try again
+                    placementRejected(ship, String.format("Invalid placement: %s is outside of grid.", ship.getName()));
                     continue;
                 }
             }
