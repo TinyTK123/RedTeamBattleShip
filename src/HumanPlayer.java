@@ -1,6 +1,7 @@
 public class HumanPlayer extends Player{
-    public HumanPlayer(String name){
-        super(name);
+    public HumanPlayer(String name, ShipFactory shipFactory){
+        super(name, shipFactory);
+
     }
 
     @Override
