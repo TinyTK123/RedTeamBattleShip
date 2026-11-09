@@ -22,6 +22,10 @@ public abstract class Player {
 
     // }
 
+    public void placeShips() {
+        shipFactory.getShips();
+    }
+
     public void receiveShotResult(){
 
     }
