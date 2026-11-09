@@ -5,7 +5,7 @@ public class ManualShipFactory extends ShipFactory {
             Coordinate startCoordinate;
             try {
                 System.out.println(String.format("Currently placing: %s", ship.getName()));
-                String playerInput = ConsoleHelper.getInput("Please select a starting coordinate.");
+                String playerInput = ConsoleHelper.getInput("Please select a starting coordinate.\n");
                 startCoordinate = new Coordinate(playerInput);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
