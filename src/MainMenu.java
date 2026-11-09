@@ -28,8 +28,8 @@ public class MainMenu{
     }
     public void playGame(){
         GameConfig gf = new GameConfig();
-        gf.configureAndCreateGame();
-        ConsoleHelper.getInput(" ");
+        Game game = gf.configureAndCreateGame();
+        game.play();
     }
 
     public void tutorial(){

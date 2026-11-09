@@ -25,13 +25,19 @@ public class Game {
     }
 
     public void play() {
-        
+        player1.placeShips();
+        clearScreen();
+        player2.placeShips();
+        clearScreen();
+        player1.takeShot();
+        player2.takeShot();
     }
 
     public void clearScreen() {
         while (true) {
-            ConsoleHelper.getInput("Press Enter To clear the screen");
+            ConsoleHelper.getInput("Press Enter To clear the screen.");
             System.out.print("\033[2J");
+            break;
         }
     }
 }
