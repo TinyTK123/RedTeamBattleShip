@@ -33,9 +33,7 @@ public class MainMenu{
     }
 
     public void tutorial(){
-        IO.println("This will be the tutorial to the game");
-        ConsoleHelper.getInput("Press Enter to return to Main Menu");
-        ConsoleHelper.getInput(" ");
+        Tutorial.displayTutorial();
     }
 
     public void quitGame(){

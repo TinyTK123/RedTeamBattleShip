@@ -78,27 +78,4 @@ public class GameConfig {
             }
         }
     }
-
-    /*
-     * 
-     * public void gameConfigSettings(){
-     * THIS NEEDS TO BE REFACTORED TO FIT UPDATED GAME CONFIG
-     * while (true){
-     * IO.
-     * println("You have chosen the following settings: (Game Settings Will Go Here)"
-     * );
-     * String confirmSettings =
-     * ConsoleHelper.getInput("Confirm Settings: \n 1. Yes  2. No \n");
-     * if (confirmSettings.equals("1")){
-     * IO.println("Great! Preparing Game . . .");
-     * break;
-     * }
-     * if (confirmSettings.equals("2")){
-     * setUp();
-     * break;
-     * }
-     * break;
-     * }
-     * }
-     */
 }
