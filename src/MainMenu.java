@@ -14,7 +14,7 @@ public class MainMenu{
                     "                                                                                   ░██        \r\n" + //
                     "                                                                                              " + ConsoleColors.RESET);
         while(true){
-            String chooseMenuOption = ConsoleHelper.getInput("Choose what you would like to do: \n 1. Play Game 2. Tutorial 3. Quit \n");
+            String chooseMenuOption = ConsoleHelper.getInput("Choose what you would like to do: \n 1. Play Game \n 2. Tutorial \n 3. Quit \n");
 
             if(chooseMenuOption.equals("1")){
                 playGame();
@@ -29,7 +29,7 @@ public class MainMenu{
     }
     public void playGame(){
         GameConfig gf = new GameConfig();
-        gf.setUp();
+        gf.configureAndCreateGame();
         ConsoleHelper.getInput(" ");
     }
 
