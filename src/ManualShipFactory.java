@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 public class ManualShipFactory extends ShipFactory {
     private OceanGrid displayGrid = new OceanGrid();
 
@@ -26,5 +30,12 @@ public class ManualShipFactory extends ShipFactory {
     @Override
     protected void placementRejected(Ship ship, String reason) {
         System.out.println(reason);
+    }
+
+    @Override
+    protected void placementAccepted( Set<Coordinate> existing) {
+        
+        displayGrid.placeShips(getShips());
+        IO.println(displayGrid.display());
     }
 }

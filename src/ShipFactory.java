@@ -27,6 +27,7 @@ public abstract class ShipFactory {
                     for (Coordinate coord:ship.getCoords()) {
                         existing.add(coord);
                     }
+                    placementAccepted(existing);
                     break;
                 } catch (Exception e) {
                     // bad coords - try again
@@ -50,6 +51,10 @@ public abstract class ShipFactory {
     }
 
     protected void placementRejected(Ship ship, String reason) {
+        // overridden in manual, automatic is empty
+    }
+
+    protected void placementAccepted( Set<Coordinate> existing) {
         // overridden in manual, automatic is empty
     }
 }
