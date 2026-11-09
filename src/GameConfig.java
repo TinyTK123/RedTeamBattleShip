@@ -10,16 +10,36 @@ public class GameConfig {
 
     // get the number of players to determine if you only need 1 instance, or 2, of the Human Player. 
     private int getNumberOfPlayers(){
-        return numberOfPlayers = ConsoleHelper.getNumberBetween("How would you like to play? \n 1. Single Player (vs AI) 2. Two Player \n", 1, 2);
+        while(true){
+            try{
+                numberOfPlayers = ConsoleHelper.getNumberBetween("How would you like to play? \n 1. Single Player (Vs AI)\n 2. Two Player (Vs Human) \n", 1, 2);
+                return numberOfPlayers;
+            } catch (Exception e){
+                IO.println("Please enter 1 or 2");
+            }
+        }
     } 
 
-    private String getPlayerName(int numberOfPlayers){
-
-        }
+    private String getPlayerName(){
+        return ConsoleHelper.getInput("Enter your name: ");
     }
+    
+
 
     private ShipFactory getDesiredShipFactory() {
+        while (true){
+            try{
+                int chooseSF = ConsoleHelper.getNumberBetween("How would you like to place your ships? \n 1. Manual \n 2. Automatic \n", 1, 2);
 
+                if (chooseSF == 1){
+                    return new ManualShipFactory();
+                } else {
+                    return new AutomaticShipFactory();
+                }
+            } catch (Exception e){
+                IO.println("Please enter 1 or 2");
+            }
+        }
     }
 
 
@@ -59,4 +79,5 @@ public class GameConfig {
         }
     }
 */
+}
 }
