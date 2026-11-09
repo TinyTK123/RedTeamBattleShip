@@ -1,9 +1,8 @@
 public class MainMenu{
 
-    private GameConfig gf = new GameConfig();
-
     public void display(){
-        IO.println(ConsoleColors.CYAN + "░████████                 ░██       ░██    ░██                       ░██        ░██           \r\n" + //
+        IO.println(ConsoleColors.CYAN + 
+                    "░████████                 ░██       ░██    ░██                       ░██        ░██           \r\n" + //
                     "░██    ░██                ░██       ░██    ░██                       ░██                      \r\n" + //
                     "░██    ░██   ░██████   ░████████ ░████████ ░██  ░███████   ░███████  ░████████  ░██░████████  \r\n" + //
                     "░████████         ░██     ░██       ░██    ░██ ░██    ░██ ░██        ░██    ░██ ░██░██    ░██ \r\n" + //
