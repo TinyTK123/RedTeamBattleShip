@@ -22,6 +22,11 @@ public abstract class ShipFactory {
                     if(coordinatesOverlapExistingCoordinates(coords, existing)){
                         continue;
                     }
+                    ship.setCoordinates(coords);
+                    for (Coordinate coord:ship.getCoords()) {
+                        existing.add(coord);
+                    }
+                    break;
                 } catch (Exception e) {
                     // bad coords - try again
                     continue;

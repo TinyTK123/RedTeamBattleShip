@@ -32,6 +32,10 @@ public class Ship {
         hits.add(coord);
     }
 
+    public List<Coordinate> getHits() {
+        return hits;
+    }
+
     public Boolean isSunk(){
         if (hits.size() == length){
             return true;
