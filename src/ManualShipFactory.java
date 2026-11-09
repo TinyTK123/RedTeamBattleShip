@@ -22,4 +22,9 @@ public class ManualShipFactory extends ShipFactory {
         String prompt = String.format("Currently placing: %s\nSelect the corresponding number to choose a direction: \n1. North\n2. South\n3. East\n4. West\n", ship.getName());
         return Direction.equivalentTo(ConsoleHelper.getNumberBetween(prompt, 1, 4));
     }
+
+    @Override
+    protected void placementRejected(Ship ship, String reason) {
+        System.out.println(reason);
+    }
 }
