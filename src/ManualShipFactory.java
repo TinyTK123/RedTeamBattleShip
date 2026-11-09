@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class ManualShipFactory extends ShipFactory {
     private OceanGrid displayGrid = new OceanGrid();
