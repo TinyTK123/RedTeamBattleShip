@@ -2,14 +2,12 @@ import java.util.List;
 
 public abstract class Player {
     private String name;
-    private ShipFactory shipFactory;
     private List<Ship> ships;
     private TargetGrid targetGrid;
     private OceanGrid oceanGrid;
     
-    public Player(String name, ShipFactory shipFactory) {
+    public Player(String name) {
         this.name = name;
-        this.shipFactory = shipFactory;
     }
 
     public String getName() {
