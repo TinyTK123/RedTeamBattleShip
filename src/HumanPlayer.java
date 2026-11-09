@@ -13,7 +13,7 @@ public class HumanPlayer extends Player{
         while (true) {
             Coordinate shot;
             try {
-                String playerInput = ConsoleHelper.getInput("Input the coordinate you'd like to fire upon: ");
+                String playerInput = ConsoleHelper.getInput(ConsoleColors.RESET + "Input the coordinate you'd like to fire upon: ");
                 shot = new Coordinate(playerInput);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
