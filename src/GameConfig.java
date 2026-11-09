@@ -13,7 +13,6 @@ public class GameConfig {
             ConsoleHelper.getInput("Press enter to return to main menu");
             return null;
         } else if (numberOfPlayers == 2){
-            player1 = createHumanPlayer();
             player2 = createHumanPlayer();
         }
         
