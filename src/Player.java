@@ -3,8 +3,8 @@ import java.util.List;
 public abstract class Player {
     private String name;
     private List<Ship> ships;
-    private TargetGrid targetGrid;
-    private OceanGrid oceanGrid;
+    private TargetGrid targetGrid = new TargetGrid();
+    private OceanGrid oceanGrid = new OceanGrid();
     private ShipFactory shipFactory;
     
     public Player(String name, ShipFactory shipFactory) {
