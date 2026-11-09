@@ -11,9 +11,6 @@ public class Game {
     private List<Player> players = new ArrayList<Player>();
     private int currentPlayerIndex = 0;
 
-    public void addPlayer(Player player) {
-        players.add(player);
-    }
 
     // swap turns
     /*
@@ -23,6 +20,11 @@ public class Game {
      * this.currentPlayer = player1;
      * }
      */
+    public Game(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+
     void switchCurrentPlayer() {
         if (currentPlayerIndex == 0) {
             currentPlayerIndex = 1;
