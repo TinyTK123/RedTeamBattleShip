@@ -20,6 +20,7 @@ public abstract class ShipFactory {
                     Direction dir = getStartDirection(ship);
                     List<Coordinate> coords = start.coordsInDirection(ship.getLength(), dir);
                     if(coordinatesOverlapExistingCoordinates(coords, existing)){
+                        placementRejected(ship, String.format("Invalid placement: %s is overlapping with another ship.", ship));
                         continue;
                     }
                     ship.setCoordinates(coords);
