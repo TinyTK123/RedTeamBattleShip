@@ -47,4 +47,8 @@ public abstract class ShipFactory {
         }
         return false;
     }
+
+    protected void placementRejected(Ship ship, String reason) {
+        // overridden in manual, automatic is empty
+    }
 }

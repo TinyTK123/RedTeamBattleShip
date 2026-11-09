@@ -7,8 +7,8 @@ public class HumanPlayer extends Player{
     public Coordinate takeShot(){
         // get input from player to create Coordinate
         // show grids for player
-        getTargetGrid().display();
-        getOceanGrid().display();
+        System.out.println(getTargetGrid().display());
+        System.out.println(getOceanGrid().display());
 
         while (true) {
             Coordinate shot;
