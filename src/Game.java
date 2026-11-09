@@ -1,49 +1,43 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
     MainMenu menu = new MainMenu();
     TargetGrid tg = new TargetGrid();
     OceanGrid og = new OceanGrid();
     private Player player1;
     private Player player2;
-    private Player currentPlayer;
 
-    public Game(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.currentPlayer = player1;
+    private List<Player> players = new ArrayList<Player>();
+    private int currentPlayerIndex = 0;
+
+    public void addPlayer(Player player) {
+        players.add(player);
     }
+
+    // swap turns
+    /*
+     * public Game(Player player1, Player player2) {
+     * this.player1 = player1;
+     * this.player2 = player2;
+     * this.currentPlayer = player1;
+     * }
+     */
+    void switchCurrentPlayer() {
+        if (currentPlayerIndex == 0) {
+            currentPlayerIndex = 1;
+        } else {
+            currentPlayerIndex = 0;
+        }
 
     public void displayCurrentPlayer() {
-        System.out.println("Current player: " + currentPlayer.getName());
+        System.out.println("Current player: " + players.get(currentPlayerIndex).getName());
     }
 
-    void switchCurrentPlayer() {
-        if (currentPlayer == player1) {
-            currentPlayer = player2;
-        } else {
-            currentPlayer = player1;
-        }
+
     }
 
     public void play() {
-        try {
-            player1.getName();
-            player2.getName();
-        } catch (UnsupportedOperationException e) {
-            System.out.println("Player names are not implemented yet.");
-        }
-        try {
-            player1.takeShot();
-            player2.takeShot();
-        } catch (UnsupportedOperationException e) {
-            System.out.println("Player shot methods are not implemented yet.");
-        }
-        try {
-            player1.turn();
-            player2.turn();
-        } catch (UnsupportedOperationException e) {
-            System.out.println("Player turn methods are not implemented yet.");
-        }
-
         menu.display();
 
     }
