@@ -1,4 +1,6 @@
 public class ManualShipFactory extends ShipFactory {
+    private OceanGrid displayGrid = new OceanGrid();
+
     @Override
     protected Coordinate getStartCoordinate(Ship ship) {
         while (true) {
