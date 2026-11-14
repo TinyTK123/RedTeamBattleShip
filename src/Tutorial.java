@@ -17,16 +17,16 @@ public class Tutorial {
         IO.println(g.display() + ConsoleColors.RESET);
 
         try {
-            Coordinate coord = new Coordinate("E5");
-            g.receiveShot(coord);
+            Coordinate coordOne = new Coordinate("E5");
+            g.receiveShot(coordOne);
         } catch (Exception e) {
             // Ignore no exeptions
         }
         IO.println(g.display() + ConsoleColors.RESET);
 
         try {
-            Coordinate coord = new Coordinate("F5");
-            g.receiveShot(coord);
+            Coordinate coordTwo = new Coordinate("F5");
+            g.receiveShot(coordTwo);
         } catch (Exception e) {
             // Ignore no exeptions
         }
