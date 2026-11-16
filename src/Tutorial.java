@@ -29,29 +29,47 @@ public class Tutorial {
         } catch (Exception e) {
             IO.println("Something went wrong while placing the ship.");
         }
-        IO.println("Here's a ship on the water. Ships show up as the letter 'S'.");
+        IO.println("\nHere's a ship on the water. Ships show up as the letter 'S'.");
         IO.println("Check row E: this one stretches from E3 to E7.");
         IO.println("That's your Carrier, the biggest ship in the fleet at 5 spaces long.");
         IO.println(g.display() + ConsoleColors.RESET);
         pause();
 
         // --- Slide 3: A hit ---
-        try {
-            g.receiveShot(new Coordinate("E5"));
-        } catch (Exception e) {
-            // Tutorial shot, safe to ignore
+        while (true) {
+            try {
+                IO.println("To take a shot type the row first with its letter then the column with it's number");
+                Coordinate shotHit = new Coordinate(ConsoleHelper.getInput("Shoot at E5\n")); // riku please make this sound better.
+                IO.println(""); // Adds a blank line if they mess up their shot
+                if(shotHit.equals(new Coordinate("E5"))){
+                    g.receiveShot(new Coordinate("E5"));
+                    break;
+                } else {
+                    IO.println("That wasn't E5!\nTry again!");
+                }
+            } catch (Exception e) {
+                // Tutorial shot, safe to ignore
+            }
         }
-        IO.println("Direct hit! Someone fired on E5 and struck the Carrier.");
+        IO.println("\nDirect hit! Someone fired on E5 and struck the Carrier.");
         IO.println("Hits are marked with an 'X'.");
         IO.println(g.display() + ConsoleColors.RESET);
         pause();
 
         // --- Slide 4: A miss ---
+        while (true) {
         try {
+            Coordinate shotMiss = new Coordinate(ConsoleHelper.getInput("Now shoot at F5\n"));
+            if (shotMiss.equals(new Coordinate("F5"))){
             g.receiveShot(new Coordinate("F5"));
+            break;
+            } else {
+                IO.print("That wasn't F5!\nTry again!");
+            }
         } catch (Exception e) {
             // Tutorial shot, safe to ignore
         }
+    }
         IO.println("This shot landed on F5 and found nothing but water.");
         IO.println("Misses are marked with an 'O'.");
         IO.println(g.display() + ConsoleColors.RESET);
@@ -60,6 +78,6 @@ public class Tutorial {
         // --- Outro ---
         IO.println("That's all you need to know. Hunt down the enemy fleet before they find yours.");
         IO.println("Good luck, Admiral!");
-        ConsoleHelper.getInput("\n[Press Enter to return to the Main Menu]");
+        ConsoleHelper.getInput("\n[Press Enter to return to the Main Menu]\n");
     }
 }
