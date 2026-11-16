@@ -52,8 +52,8 @@ public class Tutorial {
         }
         IO.println("\nDirect hit! You fired on E5 and struck the Carrier!");
         IO.println("Hits are marked with an 'X'.");
-        IO.println("Once a ship is full of holes with the X's, it sinks.");
-        IO.println("Once every ship is sunk, the game is over.");
+        IO.println("Once a ship is full of holes with the 'X', it sinks!");
+        IO.println("Once either your fleet or the enemy fleet is destroyed, the game is over.");
         IO.println(g.display() + ConsoleColors.RESET);
         pause();
 
