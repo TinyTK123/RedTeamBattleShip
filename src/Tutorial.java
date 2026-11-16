@@ -39,13 +39,13 @@ public class Tutorial {
         while (true) {
             try {
                 IO.println("To take a shot type the row first with its letter then the column with it's number");
-                Coordinate shotHit = new Coordinate(ConsoleHelper.getInput("Shoot at E5\n")); // riku please make this sound better.
+                Coordinate shotHit = new Coordinate(ConsoleHelper.getInput("Get your cannons ready at take aim! E5 is your target.\n")); // riku please make this sound better.
                 IO.println(""); // Adds a blank line if they mess up their shot
-                if(shotHit.equals(new Coordinate("E5"))){
+                if (shotHit.equals(new Coordinate("E5"))) {
                     g.receiveShot(new Coordinate("E5"));
                     break;
                 } else {
-                    IO.println("That wasn't E5!\nTry again!");
+                    IO.println("That wasn't E5, take your shot again!");
                 }
             } catch (Exception e) {
                 // Tutorial shot, safe to ignore
@@ -58,18 +58,18 @@ public class Tutorial {
 
         // --- Slide 4: A miss ---
         while (true) {
-        try {
-            Coordinate shotMiss = new Coordinate(ConsoleHelper.getInput("Now shoot at F5\n"));
-            if (shotMiss.equals(new Coordinate("F5"))){
-            g.receiveShot(new Coordinate("F5"));
-            break;
-            } else {
-                IO.print("That wasn't F5!\nTry again!");
+            try {
+                Coordinate shotMiss = new Coordinate(ConsoleHelper.getInput("Now, take aim at F5.\n"));
+                if (shotMiss.equals(new Coordinate("F5"))) {
+                    g.receiveShot(new Coordinate("F5"));
+                    break;
+                } else {
+                    IO.println("That wasn't F5, take your shot again!");
+                }
+            } catch (Exception e) {
+                // Tutorial shot, safe to ignore
             }
-        } catch (Exception e) {
-            // Tutorial shot, safe to ignore
         }
-    }
         IO.println("This shot landed on F5 and found nothing but water.");
         IO.println("Misses are marked with an 'O'.");
         IO.println(g.display() + ConsoleColors.RESET);
