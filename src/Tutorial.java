@@ -31,7 +31,7 @@ public class Tutorial {
         }
         IO.println("\nHere's a ship on the water. Ships show up as the letter 'S'.");
         IO.println("Check row E: this one stretches from E3 to E7.");
-        IO.println("That's your Carrier, the biggest ship in the fleet at 5 spaces long.");
+        IO.println("That's the enemy fleet'sCarrier, the biggest ship in the fleet at 5 spaces long.");
         IO.println(g.display() + ConsoleColors.RESET);
         pause();
 
@@ -51,8 +51,10 @@ public class Tutorial {
                 // Tutorial shot, safe to ignore
             }
         }
-        IO.println("\nDirect hit! Someone fired on E5 and struck the Carrier.");
+        IO.println("\nDirect hit! You fired on E5 and struck the Carrier!");
         IO.println("Hits are marked with an 'X'.");
+        IO.println("Once a ship is full of holes with the X's, it sinks and is sunk.");
+        IO.println("Once every ship is sunk, the game is over.");
         IO.println(g.display() + ConsoleColors.RESET);
         pause();
 
