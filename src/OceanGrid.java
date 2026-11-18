@@ -54,4 +54,13 @@ public class OceanGrid extends Grid {
             }
         }
     }
+
+    public boolean shipsAreSunk() {
+        for (Ship ship:ships) {
+            if (!ship.isSunk()){
+                return false;
+            }
+        } 
+        return true;
+    }
 }
