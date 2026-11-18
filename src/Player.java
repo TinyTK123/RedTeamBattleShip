@@ -26,9 +26,22 @@ public abstract class Player {
         return shipFactory.getShips();
     }
 
-    public void receiveShotResult(){
+    // Update player's target grid to reflect the outcome of the shot they fired. Returns the outcome
+    // of the shot, which can be used to display a textual message in the console reflecting the outcome
+    // of the shot. This would likely happen in the play() method of class Game.
+    public ShotOutcome receiveShotResult(ShotResult result) {	
+		ShotOutcome outcome = result.getOutcome();
+		Coordinate shot = result.getShot();
+		Cell cell = targetGrid.getCellAtCoord(shot);
 
-    }
+		if (outcome == ShotOutcome.MISS) {
+			cell.setCellstate(CellState.MISS);
+		} else {
+			cell.setCellstate(CellState.HIT);
+		}
+
+		return outcome;
+	}
 
     // TODO: player subclasses require these protected getters to access the targetGrid and oceanGrid.
     // This works for now, but it may be in our best interest to rework the Player base class into
