@@ -25,6 +25,7 @@ public class Game {
     }
 
     public void play() {
+        
         player1.getOceanGrid().placeShips(player1.placeShips());
         player2.getOceanGrid().placeShips(player2.placeShips());
         player1.takeShot();
