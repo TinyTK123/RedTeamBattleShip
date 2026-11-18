@@ -43,6 +43,32 @@ public abstract class Player {
 		return outcome;
 	}
 
+    // The player receives a shot, and the shot is compared against the player's ocean grid.
+    // The cellState of the targeted cell is updated depending on the outcome of the shot,
+    // and the method returns a shotResult built to fit the outcome of the shot.
+    public ShotResult receiveShot(Coordinate shot) {
+        Cell targetedCell = oceanGrid.getCellAtCoord(shot);
+        CellState targetedCellState = targetedCell.getCellstate();
+        ShotResult result;
+        if (targetedCellState == CellState.EMPTY) {
+            targetedCell.setCellstate(CellState.MISS);
+            result = new ShotResult(ShotOutcome.MISS, shot);
+        } else if (targetedCellState == CellState.OCCUPIED) {
+            targetedCell.setCellstate(CellState.HIT);
+            result = new ShotResult(ShotOutcome.HIT, shot);
+        }
+        // The block only executes when the CellState is HIT or MISS
+        // This means that the cell has already been fired upon
+        // In theory, this should never execute, as the opposing player's targetGrid.isValidShot should prevent this.
+        //TODO: ShotOutcome may need to be updated with a new value, INVALID, just in case.
+        // A similar case can be found on OceanGrid.java line 40.
+        else {
+            targetedCell.setCellstate(CellState.MISS);
+            result = new ShotResult(ShotOutcome.MISS, shot);
+        }
+        return result;
+    }
+
     // TODO: player subclasses require these protected getters to access the targetGrid and oceanGrid.
     // This works for now, but it may be in our best interest to rework the Player base class into
     // an interface sometime in the future.
