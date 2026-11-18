@@ -6,5 +6,5 @@ public interface Player {
     ShotResult receiveShot(Coordinate c);
     void receiveShotResult(ShotResult result);
     boolean shipsAreSunk();
-    void placeShip();
+    void placeShips();
 }

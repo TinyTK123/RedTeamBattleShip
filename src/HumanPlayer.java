@@ -60,7 +60,7 @@ public class HumanPlayer implements Player{
     }
 
     @Override
-    public void placeShip() {
+    public void placeShips() {
         List<Ship> ships = shipFactory.getShips();
         oceanGrid.placeShips(ships);
     }
