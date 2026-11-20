@@ -1,17 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 
 public class Game {
     private Player player1;
     private Player player2;
 
-
-    private Player currentPlayer = player1;
-    private Player otherPlayer = player2;
+    private Player currentPlayer;
+    private Player otherPlayer;
 
     public Game(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
+        this.currentPlayer = player1;
+        this.otherPlayer = player2;
     }
 
     private void switchCurrentPlayer() {
@@ -46,6 +47,19 @@ public class Game {
             }
             
             // player is responsible for grids, not player
+            if (otherPlayer.shipsAreSunk()){
+                System.out.printf("Game Over! %s%n wins!", currentPlayer.getName());
+                break;
+            }
+
+            switchCurrentPlayer();
+
+            if (otherPlayer instanceof HumanPlayer){
+                ConsoleHelper.getInput("\n Press enter to continue");
+                System.out.printf("%n Is %s ready?", otherPlayer);
+                ConsoleHelper.clearScreen();
+                ConsoleHelper.getInput("\n Press enter to continue");           
+            }
 
         }
 
