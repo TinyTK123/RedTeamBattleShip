@@ -5,14 +5,14 @@ public class GameConfig {
 
     public Game configureAndCreateGame() {
         numberOfPlayers = getNumberOfPlayers();
-        player1 = createHumanPlayer();
+        player1 = createHumanPlayer(1);
 
         if (numberOfPlayers == 1) {
             IO.println("Single Player is not available yet.");
             ConsoleHelper.getInput("Press enter to return to main menu");
             return null;
         } else if (numberOfPlayers == 2){
-            player2 = createHumanPlayer();
+            player2 = createHumanPlayer(2);
         }
         return new Game(player1, player2);
     }
@@ -31,8 +31,8 @@ public class GameConfig {
         }
     }
 
-    private String getPlayerName() {
-        return ConsoleHelper.getInput("Enter your name: ");
+    private String getPlayerName(int playerIndex) {
+        return ConsoleHelper.getInput(String.format("Enter player %s's name: ", playerIndex));
     }
 
     private ShipFactory getDesiredShipFactory() {
@@ -52,8 +52,8 @@ public class GameConfig {
         }
     }
 
-    private Player createHumanPlayer() {
-        String name = getPlayerName();
+    private Player createHumanPlayer(int playerIndex) {
+        String name = getPlayerName(playerIndex);
         ShipFactory shipFactory = getDesiredShipFactory();
         return new HumanPlayer(name, shipFactory);
     }
