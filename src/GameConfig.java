@@ -23,7 +23,7 @@ public class GameConfig {
         while (true) {
             try {
                 numberOfPlayers = ConsoleHelper.getNumberBetween(
-                        "How would you like to play? %n 1. Single Player (Vs AI)%n 2. Two Player (Vs Human) %n", 1, 2);
+                        "How would you like to play? \n 1. Single Player (Vs AI)\n 2. Two Player (Vs Human) \n", 1, 2);
                 return numberOfPlayers;
             } catch (Exception e) {
                 IO.println("Please enter 1 or 2");
@@ -39,7 +39,7 @@ public class GameConfig {
         while (true) {
             try {
                 int chooseSF = ConsoleHelper.getNumberBetween(
-                        "How would you like to place your ships? %n 1. Manual %n 2. Automatic %n", 1, 2);
+                        "How would you like to place your ships? \n 1. Manual \n 2. Automatic \n", 1, 2);
 
                 if (chooseSF == 1) {
                     return new ManualShipFactory();
@@ -63,7 +63,7 @@ public class GameConfig {
         while (true) {
             try {
                 int selectGameMode = ConsoleHelper
-                        .getNumberBetween("Select Difficulty: %n 1. Easy %n  2. Medium %n  3. Hard %n", 1, 3);
+                        .getNumberBetween("Select Difficulty: \n 1. Easy \n  2. Medium \n  3. Hard \n", 1, 3);
                 if (selectGameMode == 1) {
                     IO.println("Easy AI selected.");
                 }
