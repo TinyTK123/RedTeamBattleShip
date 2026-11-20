@@ -38,7 +38,7 @@ public class Game {
             // recieve shot result 
             currentPlayer.receiveShotResult(sr);
 
-            System.out.printf("%s shoots at %", currentPlayer.getName(), shot.toString());
+            System.out.printf("%s shoots at %s", currentPlayer.getName(), shot.toString());
             // switch case works similar to if else statement.
             switch (sr.getOutcome()){
                 case HIT -> System.out.printf(" . . . HIT! %n");
