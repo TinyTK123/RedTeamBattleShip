@@ -51,8 +51,6 @@ public class HumanPlayer implements Player{
 
     @Override
     public void receiveShotResult(ShotResult result) {
-        targetGrid.receiveShotResult(result);
-
         ConsoleHelper.clearScreen();
         System.out.println(targetGrid.display());
         System.out.println(oceanGrid.display());
