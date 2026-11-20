@@ -46,7 +46,7 @@ public class TargetGrid extends Grid {
         
         Coordinate shot = shotResult.getShot();
         ShotOutcome shotOutcome = shotResult.getOutcome();
-        String shipName = shotResult.getShipName();
+        String shipName = shotResult.getShipName().orElse("Undefined");
 
         Cell cell = this.getCellAtCoord(shot);
         if (shotOutcome == ShotOutcome.HIT) {
