@@ -31,33 +31,4 @@ public class TargetGrid extends Grid {
             return false;
         }
     }
-
-    /**
-     * Records the outcome of a shot fired at the opponent.
-     * The result comes back from the opponent's OceanGrid.receiveShot().
-     *
-     * @param shot  the coordinate that was fired at
-     * @param result the outcome, expected to be CellState.HIT or CellState.MISS
-     * @return a string that reveals the outcome of the shot.
-     */
-    public String receiveShotResult(ShotResult shotResult) {
-        // ShotResult contains the coordinate, shotOutcome, and shipName
-        // shipName will only be used if the shotOutcome is SUNK.
-        
-        Coordinate shot = shotResult.getShot();
-        ShotOutcome shotOutcome = shotResult.getOutcome();
-        String shipName = shotResult.getShipName().orElse("Undefined");
-
-        Cell cell = this.getCellAtCoord(shot);
-        if (shotOutcome == ShotOutcome.HIT) {
-            cell.setCellstate(CellState.HIT);
-            return String.format("Miss recorded at %s.", shot);
-        } else if (shotOutcome == ShotOutcome.MISS) {
-            cell.setCellstate(CellState.MISS);
-            return String.format("Successful hit recorded at %s.", shot);
-        } else {
-            cell.setCellstate(CellState.HIT);
-            return String.format("You just sank your opponent's %s!", shipName);
-        }
-    }
 }
