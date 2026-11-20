@@ -1,6 +1,3 @@
-// import java.util.ArrayList;
-// import java.util.List;
-
 public class Game {
     private Player player1;
     private Player player2;
@@ -38,7 +35,7 @@ public class Game {
             // recieve shot result 
             currentPlayer.receiveShotResult(sr);
 
-            System.out.printf("%s shoots at %s", currentPlayer.getName(), shot.toString());
+            System.out.printf(ConsoleColors.RESET + "%s shoots at %s", currentPlayer.getName(), shot.toString());
             // switch case works similar to if else statement.
             switch (sr.getOutcome()){
                 case HIT -> System.out.printf(" . . . HIT! %n");
