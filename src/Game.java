@@ -56,8 +56,8 @@ public class Game {
 
             if (otherPlayer instanceof HumanPlayer){
                 ConsoleHelper.getInput("\n Press enter to continue");
-                System.out.printf("%n Is %s ready?", otherPlayer);
                 ConsoleHelper.clearScreen();
+                System.out.printf("%n Is %s ready?", otherPlayer);
                 ConsoleHelper.getInput("\n Press enter to continue");           
             }
 
