@@ -23,8 +23,14 @@ public class Game {
     }
 
     public void play() {
+        blankOutScreen();
         player1.placeShips();
+        currentPlayer = player2;
+        blankOutScreen();
         player2.placeShips();
+        currentPlayer = player1;
+        blankOutScreen(); 
+        
         while (true){
             System.out.println("Current player: " + currentPlayer.getName() + ", where would you like to shoot? ");
 
@@ -53,12 +59,17 @@ public class Game {
 
             if (otherPlayer instanceof HumanPlayer){
                 ConsoleHelper.getInput("\nPress enter to continue");
-                ConsoleHelper.clearScreen();
-                System.out.printf("%n Is %s ready?", currentPlayer.getName());
-                ConsoleHelper.getInput("\nPress enter to continue");           
+                blankOutScreen();          
             }
 
         }
 
+    }
+
+    // Used the same three lines of code a lot and made this name as to not make issues
+    private void blankOutScreen(){
+        ConsoleHelper.clearScreen();
+        System.out.printf(ConsoleColors.RESET + "%nIs %s ready?", currentPlayer.getName());
+        ConsoleHelper.getInput("\nPress enter to continue");
     }
 }
