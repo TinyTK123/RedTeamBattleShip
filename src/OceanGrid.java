@@ -13,13 +13,13 @@ public class OceanGrid extends Grid {
         if (cell.getCellstate() == CellState.OCCUPIED) {
             // Hit or Sunk
             Ship ship = cell.getShip();
-            
+
             // check if shot resulted in a sunk
+            ship.registerHit(shotCoordinate);
             int shipDamage = ship.getHits().size();
             if (shipDamage == ship.getLength()) {
                 // Sunk
                 ShotResult shotResult = ShotResult.sunk(shotCoordinate, ship.getName());
-                
                 cell.setCellstate(CellState.HIT);
                 return shotResult;
             } else {

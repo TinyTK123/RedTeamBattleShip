@@ -61,6 +61,20 @@ public class AnOceanGrid {
         }
     }
 
+    @Test
+    void finalShipHitShouldResultInSUNKShotResult() throws Exception {
+        Ship ship = new Ship("Destroyer", 2);
+        ship.setCoordinates(List.of(new Coordinate("A1"), new Coordinate("A2")));
+        og.placeShips(List.of(ship));
+
+        assertEquals(ShotOutcome.HIT, og.receiveShot(new Coordinate("A1")).getOutcome());
+
+        ShotResult result = og.receiveShot(new Coordinate("A2"));
+        assertEquals(ShotOutcome.SUNK, result.getOutcome());
+        assertEquals("Destroyer", result.getShipName().orElseThrow());
+        assertTrue(ship.isSunk());
+    }
+
     List<Ship> collectionOfShips() {
         Ship ship1 = new Ship("Carrier", 5);
         Ship ship2 = new Ship("Battleship", 4);
