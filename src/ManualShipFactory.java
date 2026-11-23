@@ -35,4 +35,9 @@ public class ManualShipFactory extends ShipFactory {
         displayGrid.placeShips(List.of(ship));
         IO.println(displayGrid.display());
     }
+
+    @Override 
+    protected void displayEmptyGrid() {
+        IO.println(displayGrid.display());
+    }
 }

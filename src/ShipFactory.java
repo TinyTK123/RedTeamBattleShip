@@ -13,6 +13,7 @@ public abstract class ShipFactory {
         List<Ship> ships = List.of(ship1, ship2, ship3, ship4, ship5);
         
         Set<Coordinate> existing = new HashSet<>();
+        displayEmptyGrid();
         for (Ship ship: ships){
             while (true){
                 try {
@@ -56,6 +57,10 @@ public abstract class ShipFactory {
     }
 
     protected void placementAccepted(Ship ship) {
+        // overridden in manual, automatic is empty
+    }
+
+    protected void displayEmptyGrid() {
         // overridden in manual, automatic is empty
     }
 }
