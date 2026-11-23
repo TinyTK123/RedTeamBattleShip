@@ -3,10 +3,7 @@ import java.util.List;
 
 public class Tutorial {
 
-    // Waits for Enter before moving to the next "slide"
-    private static void pause() {
-        ConsoleHelper.getInput("\n[Press Enter to continue]");
-    }
+    
 
     // static for now, will be changed later
     public static void displayTutorial() {
@@ -17,7 +14,7 @@ public class Tutorial {
         IO.println("It's 10x10, with rows lettered A through J and columns numbered 1 through 10.");
         IO.println("Whenever the game asks you for a target, you'll answer with a coordinate like B7 or J10.");
         IO.println(g.display() + ConsoleColors.RESET);
-        pause();
+        ConsoleHelper.getInput("\n[Press Enter to continue]");
 
         // --- Slide 2: Placing a ship ---
         Ship ship = new Ship("carrier", 5);
@@ -33,7 +30,7 @@ public class Tutorial {
         IO.println("Check row E: this one stretches from E3 to E7.");
         IO.println("That's the enemy fleet's Carrier, the biggest ship in the fleet at 5 spaces long.");
         IO.println(g.display() + ConsoleColors.RESET);
-        pause();
+        ConsoleHelper.getInput("\n[Press Enter to continue]");
 
         // --- Slide 3: A hit ---
         while (true) {
@@ -55,7 +52,7 @@ public class Tutorial {
         IO.println("Once a ship is full of holes with the 'X', it sinks!");
         IO.println("Once either your fleet or the enemy fleet is destroyed, the game is over.");
         IO.println(g.display() + ConsoleColors.RESET);
-        pause();
+        ConsoleHelper.getInput("\n[Press Enter to continue]");
 
         // --- Slide 4: A miss ---
         while (true) {
@@ -74,7 +71,7 @@ public class Tutorial {
         IO.println("\nThis shot landed on F5 and found nothing but water.");
         IO.println("Misses are marked with an 'O'.");
         IO.println(g.display() + ConsoleColors.RESET);
-        pause();
+        ConsoleHelper.getInput("\n[Press Enter to continue]");
 
         // --- Outro ---
         IO.println("\nThat's all you need to know. Hunt down the enemy fleet before they find yours.");
