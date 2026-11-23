@@ -16,28 +16,20 @@ public class MainMenu{
             String chooseMenuOption = ConsoleHelper.getInput("Choose what you would like to do: \n 1. Play Game \n 2. Tutorial \n 3. Quit \n");
 
             if(chooseMenuOption.equals("1")){
-                playGame();
+                // This code starts the game up
+                GameConfig gf = new GameConfig();
+                Game game = gf.configureAndCreateGame();
+                game.play();
             }
             if(chooseMenuOption.equals("2")){
-                tutorial();
+                // This code displays the tutorial
+                Tutorial.displayTutorial();
             }
             if(chooseMenuOption.equals("3")){
-                quitGame();
+                // This quits the game
+                IO.println("Thanks for playing!");
+                System.exit(0);
             }
         }
-    }
-    public void playGame(){
-        GameConfig gf = new GameConfig();
-        Game game = gf.configureAndCreateGame();
-        game.play();
-    }
-
-    public void tutorial(){
-        Tutorial.displayTutorial();
-    }
-
-    public void quitGame(){
-        IO.println("Thanks for playing!");
-        System.exit(0);
     }
 }

@@ -109,7 +109,7 @@ public class Grid {
             case MISS:
                 return ConsoleColors.WHITE_BOLD + "O" + ConsoleColors.BLUE;
             case OCCUPIED:
-                return ConsoleColors.GREY_BOLD + "S" + ConsoleColors.BLUE; // Experiment and see what colors look the best
+                return ConsoleColors.BLACK_BOLD + "S" + ConsoleColors.BLUE; // Experiment and see what colors look the best
             case EMPTY:
                 return " ";
             default:
