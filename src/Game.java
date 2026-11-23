@@ -25,9 +25,13 @@ public class Game {
     public void play() {
         blankOutScreen();
         player1.placeShips();
+        IO.println(ConsoleColors.RESET + "\nShips have been placed placed.");
+        ConsoleHelper.getInput("\nPress enter to continue");
         currentPlayer = player2;
         blankOutScreen();
         player2.placeShips();
+        IO.println(ConsoleColors.RESET + "\nShips have been placed placed.");
+        ConsoleHelper.getInput("\nPress enter to continue");
         currentPlayer = player1;
         blankOutScreen(); 
         
