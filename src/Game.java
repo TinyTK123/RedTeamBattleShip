@@ -46,12 +46,12 @@ public class Game {
             switch (sr.getOutcome()){
                 case HIT -> System.out.printf(" . . . HIT! %n");
                 case MISS -> System.out.printf(" . . . MISS! %n");
-                case SUNK -> System.out.printf(" . . . HIT and SUNK! You sunk my %s%n", sr.getShipName().orElse("Undefined"));
+                case SUNK -> System.out.printf(" . . . HIT and SUNK! You sunk my %s!%n", sr.getShipName().orElse("Undefined"));
             }
             
             // player is responsible for grids, not player
             if (otherPlayer.shipsAreSunk()){
-                System.out.printf("Game Over! %s%n wins!", currentPlayer.getName());
+                System.out.printf("Game Over! %s wins!%n", currentPlayer.getName());
                 break;
             }
 
